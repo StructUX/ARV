@@ -1,0 +1,395 @@
+<!-- 
+ 
+© 2025 StructUX. All rights reserved.
+Project Name: AD RIOT VISUALZ
+Developed by: StructUX (https://www.structux.in)
+
+This file is part of a proprietary project owned by StructUX.
+Unauthorized copying, distribution, or modification of this file, 
+via any medium, is strictly prohibited.
+ 
+For licensing inquiries or permissions, contact: structux@outlook.com
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD RIOT VISUALZ</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- favicon -->
+        <link rel="shortcut icon" href="assets/images/logo/2.svg" type="image/x-icon">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.min.css">
+
+    <!-- osmo -->
+    <link rel="stylesheet" href="assets/osmo/osmo.css">
+    <link rel="stylesheet" href="assets/osmo/osmo.min.css">
+</head>
+<body>
+
+   <div class="video-wrapper">
+    <!-- Desktop Video -->
+    <video class="desktop-video" src="assets/media/logo/1.mov" autoplay muted loop playsinline></video>
+
+    <!-- Mobile Video -->
+    <video class="mobile-video" src="assets/media/logo/2.mov" autoplay muted loop playsinline></video>
+
+    <!-- Down Arrow -->
+    <div class="down-arrow">&#x2193;<br></div>
+
+<!-- Play/Pause Button -->
+<!-- <button class="video-toggle" onclick="toggleVideo()" aria-label="Toggle Video">
+  <i class="bi bi-pause-fill" id="video-icon"></i>
+</button> -->
+
+
+
+  </div>
+
+
+    <!-- service  -->
+    <section class="services-section">
+        <h1>Services</h1>
+        <p>We provide top-notch digital services to boost your business.</p>
+        
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="#">
+                <div class="service-content">
+                    <h3>Video Editing</h3>
+                    <p>Precision cuts that turn footage into dopamine hits.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1510867461263-2876b3bc4bf3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="#">
+                <div class="service-content">
+                    <h3>Cinematography & Production</h3>
+                    <p>Cinematic storytelling for ads, music videos, and fashion films and many more.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1502404679462-d669245fc482?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="#">
+                <div class="service-content">
+                    <h3>Graphic Design</h3>
+                    <p>Visuals that disrupt feeds and convert crowds.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1607968565043-36af90dde238?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="#">
+                <div class="service-content">
+                    <h3>Social Media</h3>
+                    <p>Rebellion Reels-first strategies, meme magic, and trend-jacking.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1602261320832-b087fc36979a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="#">
+                <div class="service-content">
+                    <h3>Photography</h3>
+                    <p>Stills that scream louder than words.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- service  -->
+
+       <div id="app">
+    <section class="projects-section" data-aos="fade-up" data-aos-delay="800">
+      <h1>Featured Projects</h1>
+      <p>Some of our exciting work</p>
+
+      <div class="projects-grid">
+        <div class="project-box" v-for="(project, index) in projects" :key="index">
+          <a :href="project.url" target="_blank">
+            <img :src="getThumbnail(project.url)" alt="project" />
+            <div class="overlay">
+              <div class="play-icon"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+<br>
+      <a href="work.html">
+            <button class="curve-button">Show More</button>
+        </a>
+    </section>
+  </div>
+    <!-- vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+     <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          projects: [
+          { url: "https://www.youtube.com/watch?v=1VIj4FDGqR8" },
+          { url: "https://www.youtube.com/watch?v=FqO354mYfEU" },
+          { url: "https://www.youtube.com/watch?v=KmATz5mD8Po" },
+          { url: "https://www.youtube.com/watch?v=VqMl-8wDgyQ" },
+          { url: "https://www.youtube.com/watch?v=8CkmynRi0Ko" },
+          { url: "https://www.youtube.com/watch?v=R3E3jpxR6Y0" },
+          { url: "https://www.youtube.com/watch?v=_C_S9TYO4Vs" },
+          { url: "https://www.youtube.com/watch?v=OAhJ0JN6eSo" },
+          { url: "https://www.youtube.com/watch?v=TogkqesczHY" },
+          { url: "https://www.youtube.com/watch?v=q62jK9Yh9Vg" },
+          { url: "https://www.youtube.com/watch?v=obideWDXqIc" },
+          { url: "https://www.youtube.com/watch?v=r1KtA3210x0" },
+          { url: "https://www.youtube.com/watch?v=VcDDL3bQkRg" },
+          { url: "https://www.youtube.com/watch?v=QnhwzR_744U" },
+          { url: "https://www.youtube.com/watch?v=EJ0VucVDUsU" },
+          { url: "https://www.youtube.com/watch?v=h_Nb01yqXyw" },
+          ]
+        };
+      },
+      methods: {
+        getThumbnail(url) {
+          const videoId = this.extractVideoId(url);
+          return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        },
+        extractVideoId(url) {
+          const match = url.match(/[?&]v=([^&]+)/);
+          return match ? match[1] : '';
+        }
+      },
+      mounted() {
+        AOS.init({
+          duration: 1000,
+          once: false
+        });
+      }
+    }).mount("#app");
+  </script>
+
+    <!-- client -->
+    <section class="banner clients-section" data-aos="fade-up" data-aos-delay="400">
+        <h1>Clients</h1>
+        <p>We’ve worked with top brands across industries worldwide.</p>
+
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            <img src="assets/images/client/zeemusicco.png" alt="Client 1" class="client-logo" />
+            <img src="assets/images/client/1.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/2.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/3.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/4.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/5.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/6.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/7.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/8.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/9.png" alt="#" class="client-logo" />
+            <img src="assets/images/client/10.png" alt="#" class="client-logo" />
+        </marquee>
+
+        <a href="client.html">
+        <button class="curve-button">Show More</button>
+        </a>
+
+    </section>
+    <!-- client -->
+
+    <section class="ready-next-section" data-aos="fade-up" data-aos-delay="1200">
+        <h1>Ready To See What's Next?</h1>
+        <a href="contact.html">
+            <button class="curve-button">Connect With Us</button>
+        </a>
+    </section>
+
+
+    <!-- navbar -->
+    <div class="osmo-ui">
+        <header class="header">
+            <div class="container is--full">
+                <nav class="nav-row">
+                    <div class="nav-logo-row w-inline-block">
+                        <a href="#">
+                            <img src="assets/images/logo/2.svg" alt="Logo" class="nav-logo-image" />
+                        </a>
+                    </div>
+                    <div class="nav-logo__icon"></div>
+                    <div class="nav-row__right">
+                        <button role="button" data-menu-toggle="" class="menu-button">
+                            <div class="menu-button-text">
+                                <p class="p-large">Menu</p>
+                                <p class="p-large">Close</p>
+                            </div>
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="menu-button-icon">
+                                    <path d="M7.33333 16L7.33333 -3.2055e-07L8.66667 -3.78832e-07L8.66667 16L7.33333 16Z" fill="currentColor"></path>
+                                    <path d="M16 8.66667L-2.62269e-07 8.66667L-3.78832e-07 7.33333L16 7.33333L16 8.66667Z" fill="currentColor"></path>
+                                    <path d="M6 7.33333L7.33333 7.33333L7.33333 6C7.33333 6.73637 6.73638 7.33333 6 7.33333Z" fill="currentColor"></path>
+                                    <path d="M10 7.33333L8.66667 7.33333L8.66667 6C8.66667 6.73638 9.26362 7.33333 10 7.33333Z" fill="currentColor"></path>
+                                    <path d="M6 8.66667L7.33333 8.66667L7.33333 10C7.33333 9.26362 6.73638 8.66667 6 8.66667Z" fill="currentColor"></path>
+                                    <path d="M10 8.66667L8.66667 8.66667L8.66667 10C8.66667 9.26362 9.26362 8.66667 10 8.66667Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <section class="cloneable">
+        <div data-nav="closed" class="nav">
+            <div data-menu-toggle="" class="overlay">
+                <img src="">
+            </div>
+            <nav class="menu">
+                <div class="menu-bg">
+                    <div class="bg-panel first"></div>
+                    <div class="bg-panel second"></div>
+                    <div class="bg-panel"></div>
+                </div>
+                <div class="menu-inner">
+                    <ul class="menu-list">
+                        <li class="menu-list-item">
+                            <a href="index.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Home</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="client.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Client</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="work.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">WORK</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="about.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">About</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="contact.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Contact</p>
+                                <!-- <p class="eyebrow">05</p> -->
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- navbar -->
+
+    <footer class="apple-footer">
+        <div class="footer-container">
+            <div class="footer-note">
+                AD RIOT VISUALZ
+            </div>
+            
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="client.html">Client</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-legal">
+                <div class="footer-copyright">
+                    Copyright © 2025 StructUX. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js -->
+    <script src="js/script.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- osmo -->
+    <script src="assets/osmo/gsap.min.js"></script>
+    <script src="assets/osmo/CustomEase.min.js"></script>
+    <script src="assets/osmo/osmo.js"></script>
+    
+    <script>
+  function openPopup(embedUrl) {
+    const videoId = getYouTubeId(embedUrl);
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+    const popup = document.getElementById('popup');
+    const popupContent = popup.querySelector('.popup-content');
+
+    // Remove old content
+    popupContent.innerHTML = `
+      <span class="popup-close" onclick="closePopup()">&times;</span>
+      <img src="${thumbnailUrl}" id="videoThumbnail" style="width:100%; cursor:pointer;" alt="Thumbnail">
+    `;
+
+    // Add click to play video
+    document.getElementById('videoThumbnail').onclick = function () {
+      popupContent.innerHTML = `
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <iframe id="videoFrame" src="${embedUrl}&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      `;
+    };
+
+    popup.style.display = 'flex';
+  }
+
+  function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+    document.getElementById('popup').querySelector('.popup-content').innerHTML = '';
+  }
+
+  function getYouTubeId(url) {
+    const match = url.match(/embed\/([^\?&]+)/);
+    return match && match[1] ? match[1] : '';
+  }
+
+
+  AOS.init();
+
+</script>
+    
+</body>
+</html>
+
+<!-- 
+ 
+© 2025 StructUX. All rights reserved.
+Project Name: AD RIOT VISUALZ
+Developed by: StructUX (https://www.structux.in)
+
+This file is part of a proprietary project owned by StructUX.
+Unauthorized copying, distribution, or modification of this file, 
+via any medium, is strictly prohibited.
+ 
+For licensing inquiries or permissions, contact: structux@outlook.com
+
+-->

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - AD RIOT VISUALZ</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/2.svg" type="image/x-icon">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- osmo -->
+    <link rel="stylesheet" href="assets/osmo/osmo.css">
+    <link rel="stylesheet" href="assets/osmo/osmo.min.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous"/>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+    
+    .box {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #000;
+    }
+
+    model-viewer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .box h1 {
+      position: relative;
+      color: #fff;
+      font-size: 80px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .box h1 {
+        font-size: 32px;
+      }
+    }
+    
+    </style>
+
+</head>
+<body>
+
+    <!-- box -->
+    <section class="box">
+    <h1>Contact</h1>
+    <model-viewer src="assets/media/3D/1.glb"
+      alt="3D Model"
+      camera-controls
+      shadow-intensity="1"
+      exposure="0.8"
+      environment-image="neutral"
+      disable-zoom
+      interaction-prompt="none">
+    </model-viewer>
+</section>
+
+    <section class="contact-wrapper">
+        <div class="contact-left">
+            <h2>Reach Us</h2>
+            <p>B/37 Shulpani chs, Deonar Municipal colony, Govandi Mumbai 43</p>
+            <p><strong>Email :</strong> Info@adriotvisualz.in</p>
+            <p><strong>Phone:</strong> +91 9757221497</p>
+        </div>
+        
+        <div class="contact-right">
+            <h2>Work With Us</h2>
+            <form action="https://formspree.io/f/xblywzly" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Give us work description..." required></textarea>
+                <button type="submit" class="curve-button">Connect With Us</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2>Our Location</h2>  
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1664.8988488546236!2d72.92334047100809!3d19.05651042953195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDAzJzI0LjIiTiA3MsKwNTUnMjYuNSJF!5e1!3m2!1sen!2sin!4v1750102536682!5m2!1sen!2sin"></iframe>
+        </div>
+    </section>
+
+    <!-- navbar -->
+    <div class="osmo-ui">
+        <header class="header">
+            <div class="container is--full">
+                <nav class="nav-row">
+                    <div class="nav-logo-row w-inline-block">
+                        <a href="index.html">
+                            <img src="assets/images/logo/2.svg" alt="Logo" class="nav-logo-image" />
+                        </a>
+                    </div>
+                    <div class="nav-logo__icon"></div>
+                    <div class="nav-row__right">
+                        <button role="button" data-menu-toggle="" class="menu-button">
+                            <div class="menu-button-text">
+                                <p class="p-large">Menu</p>
+                                <p class="p-large">Close</p>
+                            </div>
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="menu-button-icon">
+                                    <path d="M7.33333 16L7.33333 -3.2055e-07L8.66667 -3.78832e-07L8.66667 16L7.33333 16Z" fill="currentColor"></path>
+                                    <path d="M16 8.66667L-2.62269e-07 8.66667L-3.78832e-07 7.33333L16 7.33333L16 8.66667Z" fill="currentColor"></path>
+                                    <path d="M6 7.33333L7.33333 7.33333L7.33333 6C7.33333 6.73637 6.73638 7.33333 6 7.33333Z" fill="currentColor"></path>
+                                    <path d="M10 7.33333L8.66667 7.33333L8.66667 6C8.66667 6.73638 9.26362 7.33333 10 7.33333Z" fill="currentColor"></path>
+                                    <path d="M6 8.66667L7.33333 8.66667L7.33333 10C7.33333 9.26362 6.73638 8.66667 6 8.66667Z" fill="currentColor"></path>
+                                    <path d="M10 8.66667L8.66667 8.66667L8.66667 10C8.66667 9.26362 9.26362 8.66667 10 8.66667Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <section class="cloneable">
+        <div data-nav="closed" class="nav">
+            <div data-menu-toggle="" class="overlay">
+                <img src="">
+            </div>
+            <nav class="menu">
+                <div class="menu-bg">
+                    <div class="bg-panel first"></div>
+                    <div class="bg-panel second"></div>
+                    <div class="bg-panel"></div>
+                </div>
+                <div class="menu-inner">
+                    <ul class="menu-list">
+                        <li class="menu-list-item">
+                            <a href="index.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Home</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="client.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Client</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="work.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">WORK</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="about.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">About</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="contact.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Contact</p>
+                                <!-- <p class="eyebrow">05</p> -->
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- navbar -->
+
+    <footer class="apple-footer">
+        <div class="footer-container">
+            <div class="footer-note">
+                AD RIOT VISUALZ
+            </div>
+            
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Pages</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="client.html">Client</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-legal">
+                <div class="footer-copyright">
+                    Copyright © 2025 StructUX. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+     
+    <!-- js -->
+    <script src="js/script.js"></script>
+
+    <!-- osmo -->
+    <script src="assets/osmo/gsap.min.js"></script>
+    <script src="assets/osmo/CustomEase.min.js"></script>
+    <script src="assets/osmo/osmo.js"></script>
+
+    
+</body>
+</html>
