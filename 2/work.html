@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - AD RIOT VISUALZ</title>
+
+        <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/2.svg" type="image/x-icon">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- osmo -->
+    <link rel="stylesheet" href="assets/osmo/osmo.css">
+    <link rel="stylesheet" href="assets/osmo/osmo.min.css">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <style>
+
+    .box {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #000;
+    }
+
+    model-viewer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .box h1 {
+      position: relative;
+      color: #fff;
+      font-size: 80px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .box h1 {
+        font-size: 32px;
+      }
+    }
+    
+    </style>
+
+</head>
+<body>
+
+   <section class="box">
+    <h1>Work</h1>
+    <model-viewer src="assets/media/3D/1.glb"
+      alt="3D Model"
+      camera-controls
+      shadow-intensity="1"
+      exposure="0.8"
+      environment-image="neutral"
+      disable-zoom
+      interaction-prompt="none">
+    </model-viewer>
+</section>
+
+</br>
+<!-- Photo Section -->
+<div id="app">
+  <!-- Top Tabs -->
+  <div class="tabs">
+    <button v-for="tab in tabs" :key="tab" :class="{active: activeTab === tab}" @click="activeTab = tab">
+      {{ tab }}
+    </button>
+  </div>
+
+  <!-- Photo Section -->
+  <div v-if="activeTab === 'Photo'">
+    <h2>Photo Gallery</h2>
+
+    <div class="video-subtabs">
+      <button v-for="sub in photoSubTabs" :key="sub" :class="{active: activePhotoSubTab === sub}" @click="activePhotoSubTab = sub">
+        {{ sub }}
+      </button>
+    </div>
+
+    <!-- <h3>{{ activePhotoSubTab }} Photos</h3> -->
+
+    <div class="gallery-grid">
+      <div class="image-card" v-for="(img, index) in images[activePhotoSubTab]" :key="index">
+        <img :src="transformCloudinaryUrl(img.url)" @click="openPreview(transformCloudinaryUrl(img.url))" />
+        <span>{{ img.title }}</span>
+      </div>
+    </div>
+  </div>
+
+<!-- Video Section -->
+<div v-if="activeTab === 'Video'">
+  <div class="video-subtabs">
+    <button
+      v-for="(videosList, subTab) in videos"
+      :key="subTab"
+      :class="{ active: activeVideoSubTab === subTab }"
+      @click="activeVideoSubTab = subTab"
+    >
+      {{ subTab }}
+    </button>
+  </div>
+
+  <div class="gallery-grid">
+    <div
+      class="video-card"
+      v-for="(video, index) in videos[activeVideoSubTab]"
+      :key="index"
+    >
+      <a :href="video.url" target="_blank" class="video-thumb-link">
+        <img :src="getYoutubeThumbnail(video.url)" :alt="video.title" />
+        <div class="video-title-overlay">{{ video.title }}</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Image Preview Modal -->
+  <div v-if="previewImage" class="preview-modal" @click="closePreview">
+    <img :src="previewImage" />
+    <span @click="closePreview">&times;</span>
+  </div>
+</div>
+</br>
+
+ <!-- navbar -->
+    <div class="osmo-ui">
+        <header class="header">
+            <div class="container is--full">
+                <nav class="nav-row">
+                    <div class="nav-logo-row w-inline-block">
+                        <a href="index.html">
+                            <img src="assets/images/logo/2.svg" alt="Logo" class="nav-logo-image" />
+                        </a>
+                    </div>
+                    <div class="nav-logo__icon"></div>
+                    <div class="nav-row__right">
+                        <button role="button" data-menu-toggle="" class="menu-button">
+                            <div class="menu-button-text">
+                                <p class="p-large">Menu</p>
+                                <p class="p-large">Close</p>
+                            </div>
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" class="menu-button-icon">
+                                    <path d="M7.33333 16L7.33333 -3.2055e-07L8.66667 -3.78832e-07L8.66667 16L7.33333 16Z" fill="currentColor"></path>
+                                    <path d="M16 8.66667L-2.62269e-07 8.66667L-3.78832e-07 7.33333L16 7.33333L16 8.66667Z" fill="currentColor"></path>
+                                    <path d="M6 7.33333L7.33333 7.33333L7.33333 6C7.33333 6.73637 6.73638 7.33333 6 7.33333Z" fill="currentColor"></path>
+                                    <path d="M10 7.33333L8.66667 7.33333L8.66667 6C8.66667 6.73638 9.26362 7.33333 10 7.33333Z" fill="currentColor"></path>
+                                    <path d="M6 8.66667L7.33333 8.66667L7.33333 10C7.33333 9.26362 6.73638 8.66667 6 8.66667Z" fill="currentColor"></path>
+                                    <path d="M10 8.66667L8.66667 8.66667L8.66667 10C8.66667 9.26362 9.26362 8.66667 10 8.66667Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <section class="cloneable">
+        <div data-nav="closed" class="nav">
+            <div data-menu-toggle="" class="overlay">
+                <img src="">
+            </div>
+            <nav class="menu">
+                <div class="menu-bg">
+                    <div class="bg-panel first"></div>
+                    <div class="bg-panel second"></div>
+                    <div class="bg-panel"></div>
+                </div>
+                <div class="menu-inner">
+                    <ul class="menu-list">
+                        <li class="menu-list-item">
+                            <a href="index.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Home</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="client.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Client</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="work.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">WORK</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="about.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">About</p>
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                        <li class="menu-list-item">
+                            <a href="contact.html" class="menu-link w-inline-block">
+                                <p class="menu-link-heading">Contact</p>
+                                <!-- <p class="eyebrow">05</p> -->
+                                <div class="menu-link-bg"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- navbar -->
+
+ <br>
+
+ <div id="footer-placeholder"></div>
+
+<!-- Load footer.html -->
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+
+   
+    <script src="js/script.js"></script>
+
+    <!-- osmo -->
+    <script src="assets/osmo/gsap.min.js"></script>
+    <script src="assets/osmo/CustomEase.min.js"></script>
+    <script src="assets/osmo/osmo.js"></script>
+    
+</body>
+</html>
