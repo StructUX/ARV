@@ -27,6 +27,7 @@ For licensing inquiries or permissions, contact: structux@outlook.com
 
     <!-- css -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style.min.css">
 
     <!-- osmo -->
@@ -144,10 +145,6 @@ For licensing inquiries or permissions, contact: structux@outlook.com
           { url: "https://www.youtube.com/watch?v=R3E3jpxR6Y0" },
           { url: "https://www.youtube.com/watch?v=_C_S9TYO4Vs" },
           { url: "https://www.youtube.com/watch?v=OAhJ0JN6eSo" },
-          { url: "https://www.youtube.com/watch?v=TogkqesczHY" },
-          { url: "https://www.youtube.com/watch?v=q62jK9Yh9Vg" },
-          { url: "https://www.youtube.com/watch?v=obideWDXqIc" },
-          { url: "https://www.youtube.com/watch?v=r1KtA3210x0" },
           ]
         };
       },
@@ -171,29 +168,57 @@ For licensing inquiries or permissions, contact: structux@outlook.com
   </script>
 
     <!-- client -->
+
     <section class="banner clients-section" data-aos="fade-up" data-aos-delay="400">
-        <h1>Clients</h1>
-        <p>We’ve worked with top brands across industries worldwide.</p>
+  <h1>Clients</h1>
+  <p>We’ve worked with top brands across industries worldwide.</p>
 
-        <marquee behavior="scroll" direction="left" scrollamount="5">
-            <img src="assets/images/client/zeemusicco.png" alt="Client 1" class="client-logo" />
-            <img src="assets/images/client/1.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/2.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/3.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/4.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/5.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/6.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/7.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/8.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/9.png" alt="#" class="client-logo" />
-            <img src="assets/images/client/10.png" alt="#" class="client-logo" />
-        </marquee>
+  <div class="clients-carousel-wrapper">
+    <button class="scroll-btn left" onclick="scrollClients(-200)">
+      &#10094;
+    </button>
 
-        <a href="client.html">
-        <button class="curve-button">Show More</button>
-        </a>
+    <div class="clients-carousel marquee" id="clientScroller">
+      <div class="clients-track">
+        <img src="assets/images/client/zeemusicco.png" class="client-logo" />
+        <img src="assets/images/client/1.png" class="client-logo" />
+        <!-- <img src="assets/images/client/2.png" class="client-logo" /> -->
+        <img src="assets/images/client/3.png" class="client-logo" />
+        <img src="assets/images/client/4.jpg" class="client-logo" />
+        <img src="assets/images/client/5.png" class="client-logo" />
+        <img src="assets/images/client/6.png" class="client-logo" />
+        <!-- <img src="assets/images/client/7.png" class="client-logo" /> -->
+        <img src="assets/images/client/8.svg" class="client-logo" />
+        <!-- <img src="assets/images/client/9.png" class="client-logo" /> -->
+        <img src="assets/images/client/10.png" class="client-logo" />
 
-    </section>
+        <!-- Duplicate for seamless loop -->
+        <img src="assets/images/client/zeemusicco.png" class="client-logo" />
+        <img src="assets/images/client/1.png" class="client-logo" />
+        <!-- <img src="assets/images/client/2.png" class="client-logo" /> -->
+        <img src="assets/images/client/3.png" class="client-logo" />
+        <img src="assets/images/client/4.jpg" class="client-logo" />
+        <img src="assets/images/client/5.png" class="client-logo" />
+        <img src="assets/images/client/6.png" class="client-logo" />
+        <!-- <img src="assets/images/client/7.png" class="client-logo" /> -->
+        <img src="assets/images/client/8.svg" class="client-logo" />
+        <!-- <img src="assets/images/client/9.png" class="client-logo" /> -->
+        <img src="assets/images/client/10.png" class="client-logo" />
+      </div>
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollClients(200)">
+      &#10095;
+    </button>
+  </div>
+
+  <a href="client.html">
+    <button class="curve-button">Show More</button>
+  </a>
+</section>
+
+
+
     <!-- client -->
 
     <section class="ready-next-section" data-aos="fade-up" data-aos-delay="1200">
@@ -289,44 +314,21 @@ For licensing inquiries or permissions, contact: structux@outlook.com
     </section>
     <!-- navbar -->
 
-    <footer class="apple-footer">
-        <div class="footer-container">
-            <div class="footer-note">
-                AD RIOT VISUALZ
-            </div>
-            
-            <div class="footer-columns">
-                <div class="footer-column">
-                    <h3>Pages</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="client.html">Client</a></li>
-                        <li><a href="work.html">Work</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-legal">
-                <div class="footer-copyright">
-                    Copyright © 2025 StructUX. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+   <!-- Placeholder -->
+<div id="footer-placeholder"></div>
+
+<!-- Load footer.html -->
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
 
     <!-- js -->
     <script src="js/script.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- osmo -->
     <script src="assets/osmo/gsap.min.js"></script>
     <script src="assets/osmo/CustomEase.min.js"></script>
@@ -372,6 +374,21 @@ For licensing inquiries or permissions, contact: structux@outlook.com
   AOS.init();
 
 </script>
+
+<script>
+  function scrollClients(amount) {
+    const el = document.getElementById('clientScroller');
+    el.querySelector('.clients-track').style.animationPlayState = 'paused'; // pause marquee on manual scroll
+    el.scrollBy({ left: amount, behavior: 'smooth' });
+
+    // Resume marquee after 3s
+    clearTimeout(window.marqueeTimeout);
+    window.marqueeTimeout = setTimeout(() => {
+      el.querySelector('.clients-track').style.animationPlayState = 'running';
+    }, 3000);
+  }
+</script>
+
     
 </body>
 </html>

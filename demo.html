@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Video Gallery</title>
+  <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.prod.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .video-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      padding: 40px 20px;
+    }
+
+    .video-item {
+      position: relative;
+      width: 300px;
+      height: 170px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .video-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.3s ease;
+    }
+
+    .video-item:hover {
+      transform: scale(1.03);
+    }
+
+    .video-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 14px;
+      padding: 8px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+    }
+
+    .video-item:hover .video-title {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="video-grid">
+      <div v-for="(group, category) in videos" :key="category">
+        <div v-for="(video, index) in group" :key="index" class="video-item">
+          <a :href="video.url" target="_blank">
+            <img :src="getYoutubeThumbnail(video.url)" :alt="video.title" />
+            <div class="video-title">{{ video.title }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          videos: {
+            MusicFestival: [
+              { url: "https://youtu.be/WFnCMgbIKJI", title: "INNELLEA | AFTERMOVIE" },
+              { url: "https://youtu.be/wBwl34ZpAvM", title: "LAST MINUTE INDIA | ZOMALAND" },
+              { url: "https://youtu.be/0tJzgC4IGaQ", title: "DIKSHANT | GULDASTA TOUR" },
+              { url: "https://youtu.be/l7V-NMIFTks?si=Ebi4_vShTeFlvDK5", title: "Nobo Festival | Aftermovie" }
+            ],
+            ArtJewellery: [
+              { url: "https://youtu.be/Dybuga8AbRM", title: "AstaGuru | September Auctions" },
+              { url: "https://youtu.be/oHM7W5lsXBc", title: "MV Dhurandhar | Realism Art" },
+              { url: "https://youtu.be/Yo25wjX84XY", title: "Tyeb Mehta's Diagonal Series" },
+              { url: "https://youtu.be/6REnLmtLuUY", title: "Zambian Emeralds Auction" },
+              { url: "https://youtu.be/UvhXJhQ3uf0", title: "Iconic Masterpieces" },
+              { url: "https://youtu.be/W6BbZWDm6Ng", title: "Historic Masterpieces" }
+            ],
+            MusicVideo: [
+              { url: "https://youtu.be/KmATz5mD8Po", title: "Ashu Shukla - Nayaab" },
+              { url: "https://youtu.be/VqMl-8wDgyQ", title: "Dikshant - Befikra" },
+              { url: "https://youtu.be/8CkmynRi0Ko", title: "Dikshant - Mera Chaand" },
+              { url: "https://youtu.be/R3E3jpxR6Y0", title: "Ishq Fakiri - Preet Gajra" }
+            ],
+            AdFilms: [
+              { url: "https://www.youtube.com/watch?v=1VIj4FDGqR8", title: "#ARKSClub" },
+              { url: "https://youtu.be/FqO354mYfEU", title: "Bewakoof | Ishaan Khattar" },
+              { url: "https://www.youtube.com/watch?v=_C_S9TYO4Vs", title: "Dhvani Bhanushali x Closeup" },
+              { url: "https://youtu.be/OAhJ0JN6eSo", title: "TP GLOBAL FX" },
+              { url: "https://youtu.be/TogkqesczHY", title: "Trading Platform" },
+              { url: "https://www.youtube.com/watch?v=q62jK9Yh9Vg", title: "Oven Story" },
+              { url: "https://www.youtube.com/watch?v=obideWDXqIc", title: "Hatke Pizzas | Oven Story" },
+              { url: "https://www.youtube.com/watch?v=r1KtA3210x0", title: "ETF Made Simple" },
+              { url: "https://www.youtube.com/watch?v=VcDDL3bQkRg", title: "Invest in ETF" },
+              { url: "https://youtu.be/QnhwzR_744U", title: "Sadak Foods | Ad Film" },
+              { url: "https://www.youtube.com/watch?v=EJ0VucVDUsU", title: "Learn ABCDETF" },
+              { url: "https://www.youtube.com/watch?v=h_Nb01yqXyw", title: "Start ETF Investing" },
+              { url: "https://www.youtube.com/watch?v=E2NOR57-6NA", title: "Times Fresh Face | Video" }
+            ],
+            FoodFestivals: [
+              { url: "https://youtube.com/shorts/KQbM-Wf9Pds", title: "Punjabi Food Fest | Westin" },
+              { url: "https://youtube.com/shorts/Y5OsNerFtSs", title: "Shake Reel | Westin" },
+              { url: "https://youtube.com/shorts/S4rK0MDq5aA", title: "Grand Brunch | Westin" },
+              { url: "https://youtube.com/shorts/yvWBa-dyv9U", title: "Himachali Food | Chef Sherry" }
+            ],
+            Reels: [
+              { url: "https://youtube.com/shorts/aSJSjOTdc7s", title: "AYCS 2023" },
+              { url: "https://youtube.com/shorts/7ONXGi3kzr4", title: "Shambhavi Thakur | Aftermovie" },
+              { url: "https://youtube.com/shorts/l6qEL3MFZ4Q", title: "KASHISH KOLLISION | GLOCAL" },
+              { url: "https://youtube.com/shorts/iKTrpGf7TWs", title: "SOLE SEARCH | Store Opening" },
+              { url: "https://youtube.com/shorts/T16oacxsHOs", title: "LMI | Max Field Festival" }
+            ]
+          }
+        };
+      },
+      methods: {
+        getYoutubeThumbnail(url) {
+          const videoId = url.includes("v=")
+            ? url.split("v=")[1].split("&")[0]
+            : url.split("/").pop().split("?")[0];
+          return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        }
+      }
+    }).mount("#app");
+  </script>
+</body>
+</html>

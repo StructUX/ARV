@@ -309,6 +309,24 @@
         }
 
 
+        .footer-column a i {
+  font-size: 20px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover i {
+  color: #ccc;
+}
+
+.footer-column ul {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+
 
 /* client */
 
@@ -654,8 +672,7 @@
       margin-bottom: 40px;
     }
 
-
-    .clients-section {
+.clients-section {
   padding: 60px 20px;
   text-align: center;
 }
@@ -672,31 +689,100 @@
   margin-bottom: 30px;
 }
 
-marquee {
+.clients-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
   padding: 20px 0;
 }
 
-.client-logo {
-  margin: 0 30px;
-  vertical-align: middle;
+.clients-carousel {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
 }
+
+.clients-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+}
+
+.client-logo {
+  flex: 0 0 auto;
+  /* height: 80px; */
+  width: auto;
+  margin: 0 20px;
+  object-fit: contain;
+  /* filter: brightness(0) invert(1); optional: makes dark logo white on black bg */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 8px 15px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.scroll-btn.left {
+  left: 0;
+}
+
+.scroll-btn.right {
+  right: 0;
+}
+
+
+
 
 
 
 /* work */
 
-#app {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  #app {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-.tabs, .video-subtabs {
+    h2, h3 {
+      /* text-align: center; */
+      margin: 10px 0;
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #ccc;
+      font-weight: 400;
+    }
+
+    .tabs, .video-subtabs {
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
       flex-wrap: wrap;
       justify-content: center;
     }
+
     .tabs button, .video-subtabs button {
       padding: 10px 20px;
       background: #222;
@@ -705,37 +791,33 @@ marquee {
       cursor: pointer;
       border-radius: 5px;
     }
+
     .tabs button.active, .video-subtabs button.active {
       background: #fff;
       color: #000;
     }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 15px;
-        justify-content: center; /* Center the grid */
+    }
 
-    }
-    .gallery-grid img, .gallery-grid iframe {
-      width: 100%;
-      /* height: auto; */
-      border-radius: 10px;
-      cursor: pointer;
-      height: 200px; /* Set a fixed height */
-  object-fit: cover; /* Ensures images are cropped, not stretched */
-    }
-    .video-card {
+    .image-card, .video-card {
       position: relative;
       overflow: hidden;
+      border-radius: 10px;
     }
 
-    .video-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-    .video-card span {
+    .image-card img, .video-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .image-card span, .video-card span {
       position: absolute;
       bottom: 0;
       background: rgba(0,0,0,0.7);
@@ -744,7 +826,16 @@ marquee {
       font-size: 14px;
       padding: 5px;
       text-align: center;
+      border-radius: 0 0 10px 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
+
+    .image-card:hover span,
+    .video-card:hover span {
+      opacity: 1;
+    }
+
     .preview-modal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -754,11 +845,13 @@ marquee {
       align-items: center;
       z-index: 1000;
     }
+
     .preview-modal img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
     }
+
     .preview-modal span {
       position: absolute;
       top: 20px;
@@ -767,3 +860,38 @@ marquee {
       cursor: pointer;
       color: #fff;
     }
+
+    .video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.video-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.video-card:hover .video-title-overlay {
+  opacity: 1;
+}
+
+

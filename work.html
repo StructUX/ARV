@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - AD RIOT VISUALZ</title>
+    <title>Work - AD RIOT VISUALZ</title>
 
         <!-- favicon -->
     <link rel="shortcut icon" href="assets/images/logo/2.svg" type="image/x-icon">
@@ -76,43 +76,69 @@
 </section>
 
 </br>
+<!-- Photo Section -->
 <div id="app">
-    <div class="tabs">
-      <button v-for="tab in tabs" :key="tab" :class="{active: activeTab === tab}" @click="activeTab = tab">
-        {{ tab }}
+  <!-- Top Tabs -->
+  <div class="tabs">
+    <button v-for="tab in tabs" :key="tab" :class="{active: activeTab === tab}" @click="activeTab = tab">
+      {{ tab }}
+    </button>
+  </div>
+
+  <!-- Photo Section -->
+  <div v-if="activeTab === 'Photo'">
+    <h2>Photo Gallery</h2>
+
+    <div class="video-subtabs">
+      <button v-for="sub in photoSubTabs" :key="sub" :class="{active: activePhotoSubTab === sub}" @click="activePhotoSubTab = sub">
+        {{ sub }}
       </button>
     </div>
 
-    <!-- Photo Gallery -->
-    <div v-if="activeTab !== 'Video'" class="gallery-grid">
-      <img v-for="(img, index) in images[activeTab]" :key="index" :src="transformCloudinaryUrl(img)" @click="openPreview(img)" />
-    </div>
+    <!-- <h3>{{ activePhotoSubTab }} Photos</h3> -->
 
-    <!-- Video Tabs -->
-    <div v-if="activeTab === 'Video'">
-      <div class="video-subtabs">
-        <button v-for="(videosList, subTab) in videos" :key="subTab" :class="{active: activeVideoSubTab === subTab}" @click="activeVideoSubTab = subTab">
-          {{ subTab }}
-        </button>
+    <div class="gallery-grid">
+      <div class="image-card" v-for="(img, index) in images[activePhotoSubTab]" :key="index">
+        <img :src="transformCloudinaryUrl(img.url)" @click="openPreview(transformCloudinaryUrl(img.url))" />
+        <span>{{ img.title }}</span>
       </div>
-
-      <div class="gallery-grid">
-        <div class="video-card" v-for="(video, index) in videos[activeVideoSubTab]" :key="index">
-          <a :href="video.url" target="_blank">
-            <img :src="getYoutubeThumbnail(video.url)" />
-            <span>{{ video.title }}</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Preview Modal -->
-    <div v-if="previewImage" class="preview-modal" @click="closePreview">
-      <img :src="previewImage" />
-      <span @click="closePreview">&times;</span>
     </div>
   </div>
 
+<!-- Video Section -->
+<div v-if="activeTab === 'Video'">
+  <div class="video-subtabs">
+    <button
+      v-for="(videosList, subTab) in videos"
+      :key="subTab"
+      :class="{ active: activeVideoSubTab === subTab }"
+      @click="activeVideoSubTab = subTab"
+    >
+      {{ subTab }}
+    </button>
+  </div>
+
+  <div class="gallery-grid">
+    <div
+      class="video-card"
+      v-for="(video, index) in videos[activeVideoSubTab]"
+      :key="index"
+    >
+      <a :href="video.url" target="_blank" class="video-thumb-link">
+        <img :src="getYoutubeThumbnail(video.url)" :alt="video.title" />
+        <div class="video-title-overlay">{{ video.title }}</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Image Preview Modal -->
+  <div v-if="previewImage" class="preview-modal" @click="closePreview">
+    <img :src="previewImage" />
+    <span @click="closePreview">&times;</span>
+  </div>
+</div>
 </br>
 
  <!-- navbar -->
@@ -200,41 +226,19 @@
     </section>
     <!-- navbar -->
 
- <br
-     <footer class="apple-footer">
-        <div class="footer-container">
-            <div class="footer-note">
-                AD RIOT VISUALZ
-            </div>
-            
-            <div class="footer-columns">
-                <div class="footer-column">
-                    <h3>Pages</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="client.html">Client</a></li>
-                        <li><a href="work.html">Work</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-legal">
-                <div class="footer-copyright">
-                    Copyright © 2025 StructUX. All rights reserved.
-                </div>
-            </div>
-        </div>
-  </footer>
+ <br>
+
+ <div id="footer-placeholder"></div>
+
+<!-- Load footer.html -->
+<script>
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+
    
     <script src="js/script.js"></script>
 
