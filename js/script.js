@@ -35,7 +35,6 @@ createApp({
           { url: 'https://ik.imagekit.io/StructUX/2/LMI-18.jpg?updatedAt=1752434570658', title: 'Event 10' },
           { url: 'https://ik.imagekit.io/StructUX/2/FN-8.jpg?updatedAt=1752434536294', title: 'Event 11' },
 
-
           { url: 'https://ik.imagekit.io/StructUX/2/DT-19.JPG?updatedAt=1752434525139', title: 'Event 1' },
           { url: 'https://ik.imagekit.io/StructUX/2/DT-12.JPG?updatedAt=1752434516966', title: 'Event 2' },
           { url: 'https://ik.imagekit.io/StructUX/2/LMI-3.jpg?updatedAt=1752434513253', title: 'Event 3' },
