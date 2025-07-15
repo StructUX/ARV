@@ -43,7 +43,6 @@ createApp({
           { url: 'https://ik.imagekit.io/StructUX/2/TBA-90.jpg?updatedAt=1752434374820', title: 'Event 7' },
           { url: 'https://ik.imagekit.io/StructUX/2/DSCF1992.jpg?updatedAt=1752434373792', title: 'Event 8' },
           { url: 'https://ik.imagekit.io/StructUX/2/3.jpg?updatedAt=1752434375113', title: 'Event 9' },
-          { url: 'https://ik.imagekit.io/StructUX/2/DT-8.JPG?updatedAt=1752434350690', title: 'Event 10' },
         ],
          Food: [
           { url: 'https://res.cloudinary.com/dwq1cx3is/image/upload/v1751130324/A_jqmjpt.jpg', title: 'Food A' },
