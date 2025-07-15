@@ -34,6 +34,19 @@ createApp({
           { url: 'https://ik.imagekit.io/StructUX/2/DT-24.JPG?updatedAt=1752434574929', title: 'Event 9' },
           { url: 'https://ik.imagekit.io/StructUX/2/LMI-18.jpg?updatedAt=1752434570658', title: 'Event 10' },
           { url: 'https://ik.imagekit.io/StructUX/2/FN-8.jpg?updatedAt=1752434536294', title: 'Event 11' },
+
+
+          { url: 'https://ik.imagekit.io/StructUX/2/DT-19.JPG?updatedAt=1752434525139', title: 'Event 1' },
+          { url: 'https://ik.imagekit.io/StructUX/2/DT-12.JPG?updatedAt=1752434516966', title: 'Event 2' },
+          { url: 'https://ik.imagekit.io/StructUX/2/LMI-3.jpg?updatedAt=1752434513253', title: 'Event 3' },
+          { url: 'https://ik.imagekit.io/StructUX/2/DT-20.JPG?updatedAt=1752434482202', title: 'Event 4' },
+          { url: 'https://ik.imagekit.io/StructUX/2/7.jpg?updatedAt=1752434346880', title: 'Event 5' },
+          { url: 'https://ik.imagekit.io/StructUX/2/DSCF2098.jpg?updatedAt=1752434381662', title: 'Event 6' },
+          { url: 'https://ik.imagekit.io/StructUX/2/TBA-90.jpg?updatedAt=1752434374820', title: 'Event 7' },
+          { url: 'https://ik.imagekit.io/StructUX/2/DSCF1992.jpg?updatedAt=1752434373792', title: 'Event 8' },
+          { url: 'https://ik.imagekit.io/StructUX/2/3.jpg?updatedAt=1752434375113', title: 'Event 9' },
+          { url: 'https://ik.imagekit.io/StructUX/2/DT-8.JPG?updatedAt=1752434350690', title: 'Event 10' },
+          { url: 'https://ik.imagekit.io/StructUX/2/9.jpg?updatedAt=1752434360292', title: 'Event 11' },
         ],
          Food: [
           { url: 'https://res.cloudinary.com/dwq1cx3is/image/upload/v1751130324/A_jqmjpt.jpg', title: 'Food A' },
